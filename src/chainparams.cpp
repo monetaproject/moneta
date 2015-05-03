@@ -43,7 +43,7 @@ public:
         nSubsidyHalvingInterval = 210000;
 
         // Genesis block
-        const char* pszTimestamp = "Wired 09/Jan/2014 The Grand Experiment Goes Live: Overstock.com Is Now Accepting Bitcoins";
+        const char* pszTimestamp = "MONETA 10/Jan/2015 Moneta project was born. We Accepting Bitcoins";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -62,7 +62,7 @@ public:
         assert(hashGenesisBlock == uint256("0x00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6"));
         assert(genesis.hashMerkleRoot == uint256("0xe0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7"));
 
-        vSeeds.push_back(CDNSSeedData("darkcoin.io", "dnsseed.darkcoin.io"));
+        vSeeds.push_back(CDNSSeedData("moneta.io", "dnsseed.moneta.io"));
         vSeeds.push_back(CDNSSeedData("darkcoin.qa", "dnsseed.darkcoin.qa"));
         vSeeds.push_back(CDNSSeedData("masternode.io", "dnsseed.masternode.io"));
         vSeeds.push_back(CDNSSeedData("moneta.io", "dnsseed.moneta.io"));
@@ -134,9 +134,9 @@ public:
         /*vSeeds.push_back(CDNSSeedData("moneta.io", "testnet-seed.moneta.io"));
         vSeeds.push_back(CDNSSeedData("moneta.qa", "testnet-seed.moneta.qa"));
         *///legacy seeders
-        vSeeds.push_back(CDNSSeedData("darkcoin.io",  "testnet-seed.darkcoin.io"));
-        vSeeds.push_back(CDNSSeedData("darkcoin.qa", "testnet-seed.darkcoin.qa"));
-        vSeeds.push_back(CDNSSeedData("masternode.io", "test.dnsseed.masternode.io"));
+        vSeeds.push_back(CDNSSeedData("moneta.io",  "testnet-seed.moneta.io"));
+        vSeeds.push_back(CDNSSeedData("seed.moneta.io", "testnet.seed.moneta.io"));
+        vSeeds.push_back(CDNSSeedData("moneta.poolcoin.pw", "seed.moneta.poolcoin.pw"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(139);                    // Testnet moneta addresses start with 'x' or 'y'
         base58Prefixes[SCRIPT_ADDRESS] = list_of( 19);                    // Testnet moneta script addresses start with '8' or '9'
