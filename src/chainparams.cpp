@@ -21,9 +21,7 @@ using namespace boost::assign;
 
 unsigned int pnSeed[] =
 {
-    0xb32b80ef, 0x807f6aeb, 0x259dfa0a, 0xa2d16323, 0x6c3dd236,
-    0xacf50584, 0x2ea2420a, 0x4e6db2c3, 0x8a80a95e, 0x340b8de5,
-    0x253b153a, 0x2e69760f, 0xb2217edd, 0x68ec1783, 0x6c3dd125,
+    0xBCA65599,  0xBCA64EA4, 0xBCA64EDD
 };
 
 class CMainParams : public CChainParams {
@@ -36,36 +34,35 @@ public:
         pchMessageStart[1] = 0x0c;
         pchMessageStart[2] = 0x6b;
         pchMessageStart[3] = 0xbd;
-        vAlertPubKey = ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
+        vAlertPubKey = ParseHex("04ffff001d01042357697265642031352f4d61792f3230313520426974636f696e206d757374206c697665");
         nDefaultPort = 9999;
         nRPCPort = 9998;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);  // Moneta starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
 
         // Genesis block
-        const char* pszTimestamp = "MONETA 10/Jan/2015 Moneta project was born. We Accepting Bitcoins";
+        const char* pszTimestamp = "Wired 15/May/2015 Bitcoin must live";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 50 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04ffff001d0104414d4f4e4554412031302f4a616e2f32303135204d6f6e6574612070726f6a6563742077617320626f726e2e20576520416363657074696e6720426974636f696e73") << OP_CHECKSIG;
+        txNew.vout[0].nValue = 500 * COIN;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1430669734;
+        genesis.nTime    = 1431650687;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 438078;
+        genesis.nNonce   = 70294;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000bd555bc569df3c8eb14479f8fd5b281bf0f11122416c82c0ecadf5408cf"));
-        assert(genesis.hashMerkleRoot == uint256("0xe995228562caf76d8283ae06310e70f993bd3b35f00c2f4eeb6414343ecffe08"));
+        assert(hashGenesisBlock == uint256("0x000003ab930a6d828497a846575e78e5049d51916ce60856339dc6c5ec139662"));
+        assert(genesis.hashMerkleRoot == uint256("0xa82b008ef45b53ec2b546a8c66c9781456d7a1ac5311f0b4c9edc7cdd324b453"));
 
-        vSeeds.push_back(CDNSSeedData("moneta.io", "dnsseed.moneta.io"));
-        vSeeds.push_back(CDNSSeedData("darkcoin.qa", "dnsseed.darkcoin.qa"));
-        vSeeds.push_back(CDNSSeedData("masternode.io", "dnsseed.masternode.io"));
-        vSeeds.push_back(CDNSSeedData("moneta.io", "dnsseed.moneta.io"));
+        vSeeds.push_back(CDNSSeedData("seed.moneta.io", "seed.moneta.io"));
+        vSeeds.push_back(CDNSSeedData("moneta.poolcoin.pw", "moneta.poolcoin.pw"));
+        vSeeds.push_back(CDNSSeedData("seed2.moneta.io", "seed2.moneta.io"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of( 76);                    // Moneta addresses start with 'X'
         base58Prefixes[SCRIPT_ADDRESS] = list_of( 16);                    // Moneta script addresses start with '7'
@@ -123,11 +120,11 @@ public:
         strDataDir = "testnet3";
 
         // Modify the TESTNET genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1430670314;
-        genesis.nNonce = 239363;
+        genesis.nTime = 1431650687;
+        genesis.nNonce = 70294;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000068319b18033754d6824c918ea318441fde2ba1c58b6b926b03825da4996"));
+        assert(hashGenesisBlock == uint256("0x000003ab930a6d828497a846575e78e5049d51916ce60856339dc6c5ec139662"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
